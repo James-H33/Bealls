@@ -1,0 +1,28 @@
+@font-face {
+  font-family: Poetsen One;
+  src: url(poetsenOne-Regular.tff); }
+
+body {
+  padding: 0;
+  margin: 0; }
+
+.main-header-wrapper {
+  width: 100%;
+  height: 100px; }
+
+.main-header-display {
+  width: 100%;
+  height: 100%; }
+
+.main-nav-wrapper {
+  width: 100%;
+  height: 100%; }
+
+.main-logo h1 {
+  color: #73C4D5;
+  font-size: 50px;
+  font-family: Poetsen One; }
+
+.slideout-link-container {
+  width: 100%;
+  height: 100%; }

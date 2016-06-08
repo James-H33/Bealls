@@ -1,0 +1,8 @@
+Bealls Clothing Website
+
+Requirements
+  - Node
+
+How to run:
+  - npm install
+  - gulp
