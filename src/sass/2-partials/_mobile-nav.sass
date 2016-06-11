@@ -3,6 +3,17 @@
   height: 50px
   background: #fff
   position: fixed
+  left: 0
+  z-index: 10
+  transition: all 300ms cubic-bezier(0.47, 0, 0.745, 0.715)
+
+  &.active-mobile
+    left: 220px
+
+@media(min-width: 1000px)
+
+  .mobile-topbar
+    display: none
 
 .mobile-menu-button
   width: 30px
@@ -13,20 +24,20 @@
   cursor: pointer
 
   span
-    width: 25px
-    height: 3px
+    width: 26px
+    height: 4px
     background: $bealls-blue
     position: absolute
     left: 3px
     transition: $fast-linear
 
     &:nth-of-type(1)
-      top: 6px
+      top: 5px
     &:nth-of-type(2)
       top: 12px
       opacity: 1
     &:nth-of-type(3)
-      top: 18px
+      top: 19px
 
     &:nth-of-type(1).active-mobile
       top: 12px
@@ -41,13 +52,13 @@
 
 .mobile-topbar-logo
   width: 30px
+  height: 100%
   position: absolute
-  left: 50%
+  left: 48%
   top: 10px
 
   img
     width: 100%
-
 
 .mobile-header-wrapper
   width: 220px
@@ -55,13 +66,16 @@
   position: fixed
   background: #fff
   left: -220px
-  transition: all 1000ms ease
+  transition: all 300ms cubic-bezier(0.47, 0, 0.745, 0.715)
 
   &.active-mobile
     left: 0
 
 
+
 .mobile-header-display
+  width: 100%
+  height: 100%
 
 .mobile-nav-links
   width: 100%
@@ -70,30 +84,75 @@
   width: 100%
   height: 50px
   overflow: hidden
-  border-bottom: 1px solid $deep-blue
+  background: #fff
+  border-bottom: 1px solid $bealls-blue
+  cursor: pointer
+  transition: $fast-linear
 
   a
-    color: $deep-blue
+    color: $bealls-blue
     font-size: 16px
     text-decoration: none
     display: block
     padding: 16px 0
     padding-left: 15px
+    transition: $fast-linear
 
   p
-    color: $deep-blue
-    font-size: 16px
+    color: $bealls-blue
+    font-size: 18px
+    font-weight: bold
     text-decoration: none
     display: block
     padding: 16px 0
     padding-left: 15px
+    transition: $fast-linear
 
 
 
 .mobile-link
   width: 90%
-  height: 0
+  height: 50px
+  overflow: hidden
+  position: relative
   margin: 0 auto
-
+  transition: $fast-linear
 
 .mobile-inner-links
+  width: 100%
+  height: 100%
+  transition: $fast-linear
+
+  a
+    color: $bealls-blue
+    font-size: 16px
+    text-decoration: none
+    display: block
+    transition: $fast-linear
+
+
+
+
+
+// Active Panels
+
+.active-panel
+  height: auto
+  overflow: visible
+
+  p
+    color: #fff
+    background: $bealls-blue
+
+  .mobile-link p
+    color: $bealls-blue
+    background: #fff
+
+
+.active-link
+  height: 100%
+  overflow: visible
+
+  &.mobile-inner-links
+    padding: 16px 0
+    padding-left: 15px

@@ -1,14 +1,23 @@
 .modular-wrapper
   width: 100%
   height: 100%
+  transition: all 300ms cubic-bezier(0.47, 0, 0.745, 0.715)
+
+  &.active-mobile
+    transform: translateX(220px)
 
 .modular-display
   width: 100%
   height: 100%
 
+
 .first-product-wrapper
   width: 100%
   height: 90vh
+  background:
+    image: url('https://images.unsplash.com/photo-1444086798547-11000e647498?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=6f10e4bde994035b509a8fc2244091c4')
+    size: cover
+    position: center center
 
 .first-product-display
   width: 100%
