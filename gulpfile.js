@@ -7,7 +7,7 @@ var plumber       = require('gulp-plumber');
 var browserSync   = require('browser-sync');
 var autoprefixer  = require('gulp-autoprefixer');
 
-gulp.task('default',['sass', 'scripts', 'browserSync'], function() {})
+gulp.task('default',['sass', 'scripts', 'imgs', 'browserSync'], function() {})
 
 gulp.task('sass', function() {
   return gulp.src('./src/sass/main.sass')
