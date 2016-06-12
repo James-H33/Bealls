@@ -10,6 +10,59 @@
   width: 100%
   height: 100%
 
+.intro-index-wrapper
+  width: 100%
+  height: 90vh
+  background:
+    image: url('https://images.unsplash.com/photo-1462146449396-2d7d4ba877d7?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=c219903b4e38c5b8109e11a3d33b9748')
+    size: cover
+    position: center center
+    repeat: no-repeat
+    attachment: fixed
+
+.intro-index-display
+  width: 100%
+  height: 100%
+  text-align: center
+  display: table
+  background: rgba(250, 250, 250, 0.3)
+
+.sale-centered
+  width: auto
+  height: auto
+  margin: 0 auto
+  display: table-cell
+  text-align: center
+  letter-spacing: 1px
+  vertical-align: middle
+
+  h2
+    color: $sale
+    font-size: 60px
+
+    span
+      font-size: 35px
+      color: #f5f5f5
+
+      &:nth-of-type(1)
+        color: $light-blue
+        font-style: italic
+
+  button
+    width: 280px
+    height: 50px
+    color: $light-blue
+    font-size: 20px
+    font-weight: bold
+    margin: 10px 0
+    background: transparent
+    border: 3px solid $light-blue
+    cursor: pointer
+    transition: $fast-linear
+
+    &:hover
+      color: $sale
+
 
 .first-product-wrapper
   width: 100%
@@ -22,3 +75,109 @@
 .first-product-display
   width: 100%
   height: 100%
+  position: relative
+  background: rgba(250, 250, 250, 0.3)
+
+.sale-left
+  width: auto
+  height: auto
+  position: absolute
+  top: 30%
+  left: 10%
+
+
+  h2, h3, h4
+    font-size: 55px
+    letter-spacing: 2px
+    font-weight: normal
+
+  h2
+    color: $sale
+
+  h3
+    color: $bealls-blue
+
+  h4
+    color: $light-blue
+
+  button
+    width: 280px
+    height: 50px
+    color: $light-blue
+    display: block
+    font-size: 20px
+    font-weight: bold
+    margin: 10px 0
+    background: transparent
+    border: 3px solid $light-blue
+    cursor: pointer
+    transition: $fast-linear
+
+    &:hover
+      color: $sale
+
+  span
+    color: $sale
+    font-size: 45px
+    font-weight: bold
+
+
+
+
+
+.second-product-wrapper
+  width: 100%
+  height: 90vh
+  background:
+    image: url('https://images.unsplash.com/photo-1450297549355-bfa4ef391427?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=175eecaa2093177c7325964d359fe7ca')
+    size: cover
+    position: center center
+
+.second-product-display
+  width: 100%
+  height: 100%
+  position: relative
+  background: rgba(250, 250, 250, 0.3)
+
+.sale-right
+  width: auto
+  height: auto
+  position: absolute
+  top: 30%
+  right: 10%
+
+
+  h2, h3, h4
+    font-size: 55px
+    letter-spacing: 2px
+    font-weight: normal
+
+  h2
+    color: $sale
+
+  h3
+    color: $bealls-blue
+
+  h4
+    color: $light-blue
+
+  button
+    width: 280px
+    height: 50px
+    color: $light-blue
+    display: block
+    font-size: 20px
+    font-weight: bold
+    margin: 10px 0
+    background: transparent
+    border: 3px solid $light-blue
+    cursor: pointer
+    transition: $fast-linear
+
+    &:hover
+      color: $sale
+
+  span
+    color: $sale
+    font-size: 45px
+    font-weight: bold
