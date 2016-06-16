@@ -23,9 +23,8 @@ mobileMenuBtn.addEventListener('click', toggleMenu);
 saleModalWrapper.addEventListener('click', function() {
 
 });
-saleModalRemove.addEventListener('click', function() {
-  saleModalWrapper.style.transform = 'translateY(-50px)';
-});
+
+saleModalRemove.addEventListener('click', removeModal);
 
 
 window.addEventListener('load', function() {
@@ -70,4 +69,8 @@ function cycleSpans() {
   mobileMenuSpans.forEach(function(spn) {
     spn.classList.toggle('active-mobile');
   })
+}
+
+function removeModal() {
+  saleModalWrapper.classList.toggle('modal-remove');
 }

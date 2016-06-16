@@ -65,6 +65,7 @@
       color: $sale
 
 
+
 .first-product-wrapper
   width: 100%
   height: 90vh
@@ -77,15 +78,15 @@
   width: 100%
   height: 100%
   position: relative
+  display: table
   background: rgba(250, 250, 250, 0.3)
 
 .sale-left
   width: auto
   height: auto
-  position: absolute
-  top: 30%
-  left: 10%
-
+  display: table-cell
+  vertical-align: middle
+  text-align: center
 
   h2, h3, h4
     font-size: 55px
@@ -109,7 +110,7 @@
     display: block
     font-size: 20px
     font-weight: bold
-    margin: 10px 0
+    margin: 10px auto
     background: transparent
     box-shadow: 0px 2px 2px #404040
     border: 3px solid #f5f5f5
@@ -125,7 +126,13 @@
     font-weight: bold
     text-shadow: 0px 2px 3px #404040
 
+@media(min-width: 769px)
 
+  .sale-left
+    text-align: left
+    position: absolute
+    top: 30%
+    left: 10%
 
 
 
@@ -140,16 +147,16 @@
 .second-product-display
   width: 100%
   height: 100%
+  display: table
   position: relative
   background: rgba(250, 250, 250, 0.3)
 
 .sale-right
   width: auto
   height: auto
-  position: absolute
-  top: 30%
-  right: 10%
-
+  display: table-cell
+  text-align: center
+  vertical-align: middle
 
   h2, h3, h4
     font-size: 55px
@@ -173,7 +180,7 @@
     display: block
     font-size: 20px
     font-weight: bold
-    margin: 10px 0
+    margin: 10px auto
     background: transparent
     box-shadow: 0px 2px 2px #404040
     border: 3px solid #f5f5f5
@@ -188,3 +195,11 @@
     font-size: 45px
     font-weight: bold
     text-shadow: 0px 2px 3px #404040
+
+@media(min-width: 769px)
+
+  .sale-right
+    text-align: left
+    position: absolute
+    top: 30%
+    right: 10%

@@ -15,7 +15,8 @@ body {
   width: 100%;
   height: 80px;
   background: #f5f5f5;
-  display: none; }
+  display: none;
+  z-index: 10; }
 
 @media (min-width: 1000px) {
   .main-header-wrapper {
@@ -52,7 +53,7 @@ body {
   display: inline-block;
   text-align: center;
   cursor: pointer; }
-  .top-link-container:hover span {
+  .top-link-container:hover a {
     color: #f5f5f5;
     background: #005488; }
   .top-link-container:hover .slideout-link-container {
@@ -65,12 +66,13 @@ body {
     transform: translateY(30px);
     -webkit-transition: all 700ms ease;
     transition: all 700ms ease; }
-  .top-link-container span {
+  .top-link-container a {
     color: #005488;
     font-size: 16px;
     font-weight: bold;
     padding: 0 8px;
-    letter-spacing: 1px; }
+    letter-spacing: 1px;
+    text-decoration: none; }
 
 .slideout-link-container {
   width: 100%;
@@ -80,6 +82,7 @@ body {
   position: absolute;
   left: 0;
   opacity: 0;
+  z-index: 100;
   -webkit-transition: all 700ms ease 0.35s;
   transition: all 700ms ease 0.35s; }
   .slideout-link-container ul {
@@ -94,7 +97,11 @@ body {
       font-weight: bold; }
     .slideout-link-container ul li {
       width: auto;
-      font-size: 16px; }
+      font-size: 12px;
+      line-height: 18px;
+      letter-spacing: 1px; }
+      .slideout-link-container ul li:hover {
+        color: #0099c7; }
 
 .slideout-inner-container {
   width: 80%;
@@ -246,7 +253,7 @@ body {
     background: #0099c7; }
   .active-panel .mobile-link p {
     color: #0099c7;
-    background: #fff; }
+    background: #f5f5f5; }
 
 .active-link {
   height: 100%;
@@ -328,14 +335,15 @@ body {
   width: 100%;
   height: 100%;
   position: relative;
+  display: table;
   background: rgba(250, 250, 250, 0.3); }
 
 .sale-left {
   width: auto;
   height: auto;
-  position: absolute;
-  top: 30%;
-  left: 10%; }
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center; }
   .sale-left h2, .sale-left h3, .sale-left h4 {
     font-size: 55px;
     letter-spacing: 2px;
@@ -354,7 +362,7 @@ body {
     display: block;
     font-size: 20px;
     font-weight: bold;
-    margin: 10px 0;
+    margin: 10px auto;
     background: transparent;
     box-shadow: 0px 2px 2px #404040;
     border: 3px solid #f5f5f5;
@@ -369,6 +377,13 @@ body {
     font-weight: bold;
     text-shadow: 0px 2px 3px #404040; }
 
+@media (min-width: 769px) {
+  .sale-left {
+    text-align: left;
+    position: absolute;
+    top: 30%;
+    left: 10%; } }
+
 .second-product-wrapper {
   width: 100%;
   height: 90vh;
@@ -379,15 +394,16 @@ body {
 .second-product-display {
   width: 100%;
   height: 100%;
+  display: table;
   position: relative;
   background: rgba(250, 250, 250, 0.3); }
 
 .sale-right {
   width: auto;
   height: auto;
-  position: absolute;
-  top: 30%;
-  right: 10%; }
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle; }
   .sale-right h2, .sale-right h3, .sale-right h4 {
     font-size: 55px;
     letter-spacing: 2px;
@@ -406,7 +422,7 @@ body {
     display: block;
     font-size: 20px;
     font-weight: bold;
-    margin: 10px 0;
+    margin: 10px auto;
     background: transparent;
     box-shadow: 0px 2px 2px #404040;
     border: 3px solid #f5f5f5;
@@ -421,6 +437,13 @@ body {
     font-weight: bold;
     text-shadow: 0px 2px 3px #404040; }
 
+@media (min-width: 769px) {
+  .sale-right {
+    text-align: left;
+    position: absolute;
+    top: 30%;
+    right: 10%; } }
+
 .sale-modal-wrapper {
   width: 100%;
   height: auto;
@@ -428,11 +451,9 @@ body {
   position: fixed;
   top: 50px;
   left: 0;
-  z-index: 5;
+  z-index: 1;
   -webkit-transition: all 300ms cubic-bezier(0.47, 0, 0.745, 0.715);
-  transition: all 300ms cubic-bezier(0.47, 0, 0.745, 0.715);
-  -webkit-transform: translateY(-50px);
-  transform: translateY(-50px); }
+  transition: all 300ms cubic-bezier(0.47, 0, 0.745, 0.715); }
   .sale-modal-wrapper.active-mobile {
     left: 220px; }
 
@@ -471,7 +492,8 @@ body {
 
 @media (min-width: 1000px) {
   .sale-modal-wrapper {
-    position: initial; }
+    position: absolute;
+    top: initial; }
   .sale-modal-display {
     width: 100%;
     position: relative; }
@@ -479,3 +501,6 @@ body {
       font-size: 20px; }
   .sale-modal-display span {
     top: 18px; } }
+
+.modal-remove {
+  opacity: 0; }
