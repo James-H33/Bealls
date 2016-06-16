@@ -1,0 +1,15 @@
+include ../partials/header.pug
+include ../partials/mobile-nav.pug
+
+section.products-list-wrapper
+  div.products.list-display
+
+    div.products-list-row
+      - shirts.forEach(function(item) {
+        li
+          h5 #{item.name}
+          p #{item.price}
+      - })
+
+
+include ../partials/mobile-nav.pug
