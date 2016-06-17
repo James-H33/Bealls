@@ -1,3 +1,4 @@
+article(data-title="Products-List")
 include ../partials/header.pug
 include ../partials/mobile-nav.pug
 
@@ -7,9 +8,10 @@ section.products-list-wrapper
     div.products-list-row
       - shirts.forEach(function(item) {
         li
+          img(src=''+item.image+'')
           h5 #{item.name}
           p #{item.price}
       - })
 
 
-include ../partials/mobile-nav.pug
+include ../partials/footer.pug
