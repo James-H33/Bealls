@@ -20,15 +20,28 @@ router.get('/men/shirts', function(req, res) {
   var menShirts = [
     {
       name: 'Black Tee',
-      price: '12.99'
+      price: '12.99',
+      image: 'http://images.beallsflorida.com/is/image/Bealls/ThumbnailImg?$layer_2_src=301-3349-4008-01-yyy&$layer_3_hide=1&$layer_4_hide=1&$layer_5_hide=1&$layer_6_hide=1&$layer_7_hide=1'
     },
     {
       name: 'White Tee',
-      price: '10.99'
+      price: '10.99',
+      image: 'http://images.beallsflorida.com/is/image/Bealls/ThumbnailImg?$layer_2_src=301-3349-4008-01-yyy&$layer_3_hide=1&$layer_4_hide=1&$layer_5_hide=1&$layer_6_hide=1&$layer_7_hide=1'
     },
     {
       name: 'White Tee',
-      price: '10.99'
+      price: '10.99',
+      image: 'http://images.beallsflorida.com/is/image/Bealls/ThumbnailImg?$layer_2_src=301-3349-4008-01-yyy&$layer_3_hide=1&$layer_4_hide=1&$layer_5_hide=1&$layer_6_hide=1&$layer_7_hide=1'
+    },
+    {
+      name: 'White Tee',
+      price: '10.99',
+      image: 'http://images.beallsflorida.com/is/image/Bealls/ThumbnailImg?$layer_2_src=301-3349-4008-01-yyy&$layer_3_hide=1&$layer_4_hide=1&$layer_5_hide=1&$layer_6_hide=1&$layer_7_hide=1'
+    },
+    {
+      name: 'White Tee',
+      price: '10.99',
+      image: 'http://images.beallsflorida.com/is/image/Bealls/ThumbnailImg?$layer_2_src=301-3349-4008-01-yyy&$layer_3_hide=1&$layer_4_hide=1&$layer_5_hide=1&$layer_6_hide=1&$layer_7_hide=1'
     }
   ]
 
