@@ -1,7 +1,7 @@
 Bealls Clothing Website
 
 Requirements
-  - Node
+  - Node 6.0
 
 How to run:
   - npm install

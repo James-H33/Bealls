@@ -1,24 +1,4 @@
-// Global Variables
-var body                = document.querySelector('body');
-var mobileMenuBtn       = document.querySelector('.mobile-menu-button');
-var mobileHeaderWrapper = document.querySelector('.mobile-header-wrapper');
-var mobileMenuSpans     = document.querySelectorAll('.mobile-menu-button span')
-var modularWrapper      = document.querySelector('.modular-wrapper');
-var mobileTopBar        = document.querySelector('.mobile-topbar');
-
-
-// Mobile Nav
-var panels      = document.querySelectorAll('.panel');
-var mobileLinks = document.querySelectorAll('.mobile-link');
-var innerLinks  = document.querySelectorAll('.mobile-inner-links');
-
-
-// Sale Modal
-var saleModalWrapper = document.querySelector('.sale-modal-wrapper');
-var saleModalRemove  = document.querySelector('.sale-modal-remove');
-
-// Products
-var productsListWrapper = document.querySelector('.products-list-wrapper');
+'use strict';
 
 // HTML5 DATA
 var article = document.querySelector('article');
@@ -31,12 +11,14 @@ var article = document.querySelector('article');
 //                 Index Page Events ONLY
 //*********************************************************
 
-if ( article.dataset.title === 'Index' ) {
-  mobileMenuBtn.addEventListener('click', toggleMenuIndex);
-  saleModalRemove.addEventListener('click', removeModal);
+if (article.dataset.title === 'Index') {
+  $('.mobile-menu-button').on('click', toggleMenuIndex);
+  $('.sale-modal-remove').on('click', removeModal);
 
-  window.addEventListener('load', function() {
-      saleModalWrapper.style.transform = 'translateY(0)';
+  window.addEventListener('load', function () {
+    $('.sale-modal-wrapper').css({
+      'transform': 'translateY(0)'
+    });
   });
 }
 
@@ -44,75 +26,64 @@ if ( article.dataset.title === 'Index' ) {
 //                 Categories Pages Events
 //*********************************************************
 
-if ( article.dataset.title === 'Main-Categories' ) {
-  mobileMenuBtn.addEventListener('click', toggleMenuMCate);
+if (article.dataset.title === 'Main-Categories') {
+  $('.mobile-menu-button').on('click', toggleMenuMCate);
 }
 
 //*********************************************************
 //                 Product Pages Events
 //*********************************************************
 
-if ( article.dataset.title === 'Products-List' ) {
-  mobileMenuBtn.addEventListener('click', toggleMenuProducts);
+if (article.dataset.title === 'Products-List') {
+  $('.mobile-menu-button').on('click', toggleMenuProducts);
 }
-
 
 //*********************************************************
 //                     FOR EACH
 //*********************************************************
 
-panels.forEach(function(pan) {
-  pan.addEventListener('click', function() {
-    panels.forEach(function(panList) {
-        panList.classList.remove('active-panel');
-    })
-    this.classList.add('active-panel');
-  })
+$('.panel p').on('click', function () {
+  var self = $(this).parent();
+  self.toggleClass('active-panel');
 });
 
-mobileLinks.forEach(function(link) {
-  link.addEventListener('click', function() {
-    this.classList.toggle('active-link');
-    innerLinks.forEach(function(innerLinkage) {
-      innerLinkage.classList.toggle('active-inner-links');
-    })
-  })
+$('.mobile-link').on('click', function () {
+  var self = $(this).parent();
+  // console.log(self.children('.mobile-inner-links'));
+  self.toggleClass('active-link');
+  self.find('.mobile-inner-links').toggleClass('active-inner-links');
 });
-
 
 //*******************************************************
 //                     FUNCTIONS
 //*******************************************************
 
-
 function toggleMenuIndex() {
-  saleModalWrapper.classList.toggle('active-mobile');
-  modularWrapper.classList.toggle('active-mobile');
+  $('.sale-modal-wrapper').toggleClass('active-mobile');
+  $('.modular-wrapper').toggleClass('active-mobile');
   toggleMenu();
 }
 
 function toggleMenuMCate() {
-  modularWrapper.classList.toggle('active-mobile');
+  $('.modular-wrapper').toggleClass('active-mobile');
   toggleMenu();
 }
 
 function toggleMenuProducts() {
-  productsListWrapper.classList.toggle('active-mobile');
+  $('.products-list-wrapper').toggleClass('active-mobile');
   toggleMenu();
 }
 
 function toggleMenu() {
-  mobileTopBar.classList.toggle('active-mobile');
-  mobileHeaderWrapper.classList.toggle('active-mobile');
+  $('.mobile-topbar').toggleClass('active-mobile');
+  $('.mobile-header-wrapper').toggleClass('active-mobile');
   cycleSpans();
 }
 
 function cycleSpans() {
-  mobileMenuSpans.forEach(function(spn) {
-    spn.classList.toggle('active-mobile');
-  })
+  $('.mobile-menu-button span').toggleClass('active-mobile');
 }
 
 function removeModal() {
-  saleModalWrapper.classList.toggle('modal-remove');
+  $('.sale-modal-wrapper').toggleClass('modal-remove');
 }

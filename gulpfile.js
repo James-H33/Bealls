@@ -1,11 +1,12 @@
-var gulp          = require('gulp');
-var sass          = require('gulp-sass');
-var nodemon       = require('nodemon');
-var uglify        = require('gulp-uglify');
-var imagemin      = require('gulp-imagemin');
-var plumber       = require('gulp-plumber');
-var browserSync   = require('browser-sync');
-var autoprefixer  = require('gulp-autoprefixer');
+const gulp          = require('gulp');
+const sass          = require('gulp-sass');
+const nodemon       = require('nodemon');
+const uglify        = require('gulp-uglify');
+const imagemin      = require('gulp-imagemin');
+const babel         = require('gulp-babel');
+const plumber       = require('gulp-plumber');
+const browserSync   = require('browser-sync');
+const autoprefixer  = require('gulp-autoprefixer');
 
 gulp.task('default',['sass', 'scripts', 'imgs', 'browserSync'], function() {})
 
@@ -25,6 +26,9 @@ gulp.task('scripts', function() {
   return gulp.src('./src/js/functions.js')
           .pipe(plumber())
           // .pipe(uglify())
+          .pipe(babel({
+            presets: ['es2015']
+          }))
           .pipe(gulp.dest('./public/js/'))
           .pipe(browserSync.reload({stream: true}))
 });
