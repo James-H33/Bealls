@@ -2,7 +2,7 @@
 const article = document.querySelector('article');
 
 //*******************************************************
-//                   EVENT LISTENERS
+//                  Modular JavaScript
 //*******************************************************
 
 (function() {
@@ -14,21 +14,45 @@ const article = document.querySelector('article');
       this.remove
     },
     cacheDOM: function() {
-      this.$el             = $('.mobile-menu-button');
-      this.$spans          = this.$el.find('span');
-      this.$topbar         = $('.mobile-topbar');
-      this.$mHeaderWrapper = $('.mobile-header-wrapper');
-      this.$saleModal      = $('.sale-modal-wrapper');
-      this.$modularWrapper = $('.modular-wrapper');
+      this.$el                  = $('.mobile-menu-button');
+      this.$spans               = this.$el.find('span');
+      this.$topbar              = $('.mobile-topbar');
+      this.$mHeaderWrapper      = $('.mobile-header-wrapper');
+      this.$saleModal           = $('.sale-modal-wrapper');
+      this.$modularWrapper      = $('.modular-wrapper');
+      this.$productListWrapper  = $('.products-list-wrapper');
     },
     bindEvents: function() {
+      if ( article.dataset.title === 'Index' ) {
       this.$el.on('click', this.menuToggle.bind(this));
+      }
+
+      if ( article.dataset.title === 'Main-Categories' ) {
+        this.$el.on('click', this.toggleMenuCate.bind(this));
+      }
+
+      if ( article.dataset.title === 'Products-List' ) {
+        this.$el.on('click', this.toggleMenuProducts.bind(this));
+      }
     },
     menuToggle: function() {
       this.$topbar.toggleClass('active-mobile');
       this.$mHeaderWrapper.toggleClass('active-mobile');
       this.$saleModal .toggleClass('active-mobile');
       this.$modularWrapper.toggleClass('active-mobile');
+      this.cycleSpan();
+    },
+    toggleMenuCate: function() {
+      this.$topbar.toggleClass('active-mobile');
+      this.$modularWrapper.toggleClass('active-mobile');
+      this.$mHeaderWrapper.toggleClass('active-mobile');
+      this.cycleSpan();
+    },
+    toggleMenuProducts: function() {
+      this.$productListWrapper.toggleClass('active-mobile');
+      this.$topbar.toggleClass('active-mobile');
+      this.$modularWrapper.toggleClass('active-mobile');
+      this.$mHeaderWrapper.toggleClass('active-mobile');
       this.cycleSpan();
     },
     cycleSpan: function() {
@@ -44,20 +68,19 @@ const article = document.querySelector('article');
 (function () {
 
   let modal = {
-    init: function() {
-      this.cacheDOM();
-      this.bindEvents();
-    },
-    cacheDOM: function() {
-      this.$saleRemove = $('.sale-modal-wrapper');
-    },
-    bindEvents: function() {
-      this.$saleRemove.on('click', this.removeModal.bind(this));
-    },
-    removeModal: function() {
-      this.$saleRemove.toggleClass('modal-remove');
-    }
-
+      init: function() {
+        this.cacheDOM();
+        this.bindEvents();
+      },
+      cacheDOM: function() {
+        this.$saleRemove = $('.sale-modal-wrapper');
+      },
+      bindEvents: function() {
+        this.$saleRemove.on('click', this.removeModal.bind(this));
+      },
+      removeModal: function() {
+        this.$saleRemove.toggleClass('modal-remove');
+      }
   }
 
   modal.init();
@@ -65,87 +88,49 @@ const article = document.querySelector('article');
 })();
 
 
+(function() {
 
-//*********************************************************
-//                 Index Page Events ONLY
-//*********************************************************
+  let panel = {
+    init: function() {
+      this.cacheDOM();
+      this.bindEvents();
+    },
+    cacheDOM: function() {
+      this.$el   = $('.panel p');
+      // this.$self = this.$el.parent();
+    },
+    bindEvents: function() {
+      this.$el.on('click', event, this.togglePanel.bind(this));
+    },
+    togglePanel: function(e) {
+       let $self = $(e.target).closest('.panel');
+      $self.toggleClass('active-panel');
+    }
+  }
 
-
-// if ( article.dataset.title === 'Index' ) {
-//   $('.mobile-menu-button').on('click', toggleMenuIndex);
-//   $('.sale-modal-remove').on('click', removeModal);
-//
-//   window.addEventListener('load', function() {
-//       $('.sale-modal-wrapper').css({
-//         'transform' : 'translateY(0)'
-//       });
-//   });
-// }
-
-//*********************************************************
-//                 Categories Pages Events
-//*********************************************************
-
-if ( article.dataset.title === 'Main-Categories' ) {
-  $('.mobile-menu-button').on('click', toggleMenuMCate);
-}
-
-//*********************************************************
-//                 Product Pages Events
-//*********************************************************
-
-if ( article.dataset.title === 'Products-List' ) {
-  $('.mobile-menu-button').on('click', toggleMenuProducts);
-}
+  panel.init();
+})();
 
 
-//*********************************************************
-//                     FOR EACH
-//*********************************************************
+(function() {
 
-$('.panel p').on('click', function() {
-  let self = $(this).parent();
-  self.toggleClass('active-panel');
-});
+  let links = {
+    init: function() {
+      this.cacheDOM();
+      this.bindEvents();
+    },
+    cacheDOM: function() {
+      this.$el         = $('.mobile-link h3');
+    },
+    bindEvents: function() {
+      this.$el.on('click', event, this.toggleLinks.bind(this));
+    },
+    toggleLinks: function(e) {
+      let $self = $(e.target).closest('.mobile-link');
+      $self.toggleClass('active-link');
+      $self.find('.mobile-inner-links').toggleClass('active-inner-links');
+    }
+  }
 
-$('.mobile-link p').on('click', function() {
-  let self = $(this).parent();
-  self.toggleClass('active-link');
-  self.find('.mobile-inner-links').toggleClass('active-inner-links');
-});
-
-
-//*******************************************************
-//                     FUNCTIONS
-//*******************************************************
-
-
-function toggleMenuIndex() {
-  $('.sale-modal-wrapper').toggleClass('active-mobile');
-  $('.modular-wrapper').toggleClass('active-mobile');
-  toggleMenu();
-}
-
-function toggleMenuMCate() {
-  $('.modular-wrapper').toggleClass('active-mobile');
-  toggleMenu();
-}
-
-function toggleMenuProducts() {
-  $('.products-list-wrapper').toggleClass('active-mobile');
-  toggleMenu();
-}
-
-function toggleMenu() {
-  $('.mobile-topbar').toggleClass('active-mobile');
-  $('.mobile-header-wrapper').toggleClass('active-mobile');
-  cycleSpans();
-}
-
-// function cycleSpans() {
-//   $('.mobile-menu-button span').toggleClass('active-mobile');
-// }
-
-// function removeModal() {
-//   $('.sale-modal-wrapper').toggleClass('modal-remove');
-// }
+  links.init();
+})();
