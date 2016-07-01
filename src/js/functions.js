@@ -1,25 +1,60 @@
-// HTML5 DATA
+// HTML5 DATA-
 const article = document.querySelector('article');
 
 //*******************************************************
 //                   EVENT LISTENERS
 //*******************************************************
 
+(function() {
+
+  let menu = {
+    init: function() {
+      this.cacheDOM();
+      this.bindEvents();
+    },
+    cacheDOM: function() {
+      this.$el             = $('.mobile-menu-button');
+      this.$spans          = this.$el.find('span');
+      this.$topbar         = $('.mobile-topbar');
+      this.$mHeaderWrapper = $('.mobile-header-wrapper');
+      this.$saleModal      = $('.sale-modal-wrapper');
+      this.$modularWrapper = $('.modular-wrapper');
+    },
+    bindEvents: function() {
+      this.$el.on('click', this.menuToggle.bind(this));
+    },
+    menuToggle: function() {
+      this.$topbar.toggleClass('active-mobile');
+      this.$mHeaderWrapper.toggleClass('active-mobile');
+      this.$saleModal .toggleClass('active-mobile');
+      this.$modularWrapper.toggleClass('active-mobile');
+      this.cycleSpan();
+    },
+    cycleSpan: function() {
+      this.$spans.toggleClass('active-mobile');
+    }
+  }
+
+  menu.init();
+
+})();
+
+
 //*********************************************************
 //                 Index Page Events ONLY
 //*********************************************************
 
 
-if ( article.dataset.title === 'Index' ) {
-  $('.mobile-menu-button').on('click', toggleMenuIndex);
-  $('.sale-modal-remove').on('click', removeModal);
-
-  window.addEventListener('load', function() {
-      $('.sale-modal-wrapper').css({
-        'transform' : 'translateY(0)'
-      });
-  });
-}
+// if ( article.dataset.title === 'Index' ) {
+//   $('.mobile-menu-button').on('click', toggleMenuIndex);
+//   $('.sale-modal-remove').on('click', removeModal);
+//
+//   window.addEventListener('load', function() {
+//       $('.sale-modal-wrapper').css({
+//         'transform' : 'translateY(0)'
+//       });
+//   });
+// }
 
 //*********************************************************
 //                 Categories Pages Events
@@ -47,9 +82,8 @@ $('.panel p').on('click', function() {
   self.toggleClass('active-panel');
 });
 
-$('.mobile-link').on('click', function() {
+$('.mobile-link p').on('click', function() {
   let self = $(this).parent();
-  // console.log(self.children('.mobile-inner-links'));
   self.toggleClass('active-link');
   self.find('.mobile-inner-links').toggleClass('active-inner-links');
 });
@@ -82,9 +116,9 @@ function toggleMenu() {
   cycleSpans();
 }
 
-function cycleSpans() {
-  $('.mobile-menu-button span').toggleClass('active-mobile');
-}
+// function cycleSpans() {
+//   $('.mobile-menu-button span').toggleClass('active-mobile');
+// }
 
 function removeModal() {
   $('.sale-modal-wrapper').toggleClass('modal-remove');
