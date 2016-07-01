@@ -11,6 +11,7 @@ const article = document.querySelector('article');
     init: function() {
       this.cacheDOM();
       this.bindEvents();
+      this.remove
     },
     cacheDOM: function() {
       this.$el             = $('.mobile-menu-button');
@@ -32,12 +33,37 @@ const article = document.querySelector('article');
     },
     cycleSpan: function() {
       this.$spans.toggleClass('active-mobile');
-    }
+    },
   }
 
   menu.init();
 
 })();
+
+
+(function () {
+
+  let modal = {
+    init: function() {
+      this.cacheDOM();
+      this.bindEvents();
+    },
+    cacheDOM: function() {
+      this.$saleRemove = $('.sale-modal-wrapper');
+    },
+    bindEvents: function() {
+      this.$saleRemove.on('click', this.removeModal.bind(this));
+    },
+    removeModal: function() {
+      this.$saleRemove.toggleClass('modal-remove');
+    }
+
+  }
+
+  modal.init();
+
+})();
+
 
 
 //*********************************************************
@@ -120,6 +146,6 @@ function toggleMenu() {
 //   $('.mobile-menu-button span').toggleClass('active-mobile');
 // }
 
-function removeModal() {
-  $('.sale-modal-wrapper').toggleClass('modal-remove');
-}
+// function removeModal() {
+//   $('.sale-modal-wrapper').toggleClass('modal-remove');
+// }

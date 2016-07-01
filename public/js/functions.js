@@ -13,6 +13,7 @@ var article = document.querySelector('article');
     init: function init() {
       this.cacheDOM();
       this.bindEvents();
+      this.remove;
     },
     cacheDOM: function cacheDOM() {
       this.$el = $('.mobile-menu-button');
@@ -38,6 +39,28 @@ var article = document.querySelector('article');
   };
 
   menu.init();
+})();
+
+(function () {
+
+  var modal = {
+    init: function init() {
+      this.cacheDOM();
+      this.bindEvents();
+    },
+    cacheDOM: function cacheDOM() {
+      this.$saleRemove = $('.sale-modal-wrapper');
+    },
+    bindEvents: function bindEvents() {
+      this.$saleRemove.on('click', this.removeModal.bind(this));
+    },
+    removeModal: function removeModal() {
+      this.$saleRemove.toggleClass('modal-remove');
+    }
+
+  };
+
+  modal.init();
 })();
 
 //*********************************************************
@@ -116,6 +139,6 @@ function toggleMenu() {
 //   $('.mobile-menu-button span').toggleClass('active-mobile');
 // }
 
-function removeModal() {
-  $('.sale-modal-wrapper').toggleClass('modal-remove');
-}
+// function removeModal() {
+//   $('.sale-modal-wrapper').toggleClass('modal-remove');
+// }
