@@ -13,7 +13,6 @@ var article = document.querySelector('article');
     init: function init() {
       this.cacheDOM();
       this.bindEvents();
-      this.remove;
     },
     cacheDOM: function cacheDOM() {
       this.$el = $('.mobile-menu-button');
@@ -73,13 +72,14 @@ var article = document.querySelector('article');
       this.bindEvents();
     },
     cacheDOM: function cacheDOM() {
-      this.$saleRemove = $('.sale-modal-wrapper');
+      this.$modalWrapper = $('.sale-modal-wrapper');
+      this.$saleRemove = this.$modalWrapper.find('.sale-modal-remove');
     },
     bindEvents: function bindEvents() {
       this.$saleRemove.on('click', this.removeModal.bind(this));
     },
     removeModal: function removeModal() {
-      this.$saleRemove.toggleClass('modal-remove');
+      this.$modalWrapper.toggleClass('modal-remove');
     }
   };
 

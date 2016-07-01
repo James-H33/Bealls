@@ -11,7 +11,6 @@ const article = document.querySelector('article');
     init: function() {
       this.cacheDOM();
       this.bindEvents();
-      this.remove
     },
     cacheDOM: function() {
       this.$el                  = $('.mobile-menu-button');
@@ -65,6 +64,7 @@ const article = document.querySelector('article');
 })();
 
 
+
 (function () {
 
   let modal = {
@@ -73,19 +73,21 @@ const article = document.querySelector('article');
         this.bindEvents();
       },
       cacheDOM: function() {
-        this.$saleRemove = $('.sale-modal-wrapper');
+        this.$modalWrapper = $('.sale-modal-wrapper');
+        this.$saleRemove    = this.$modalWrapper.find('.sale-modal-remove');
       },
       bindEvents: function() {
         this.$saleRemove.on('click', this.removeModal.bind(this));
       },
       removeModal: function() {
-        this.$saleRemove.toggleClass('modal-remove');
+        this.$modalWrapper.toggleClass('modal-remove');
       }
   }
 
   modal.init();
 
 })();
+
 
 
 (function() {
@@ -109,7 +111,9 @@ const article = document.querySelector('article');
   }
 
   panel.init();
+
 })();
+
 
 
 (function() {
@@ -133,4 +137,5 @@ const article = document.querySelector('article');
   }
 
   links.init();
+
 })();
