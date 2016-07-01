@@ -1,26 +1,82 @@
 'use strict';
 
-// HTML5 DATA
+// HTML5 DATA-
 var article = document.querySelector('article');
 
 //*******************************************************
 //                   EVENT LISTENERS
 //*******************************************************
 
+(function () {
+
+  var menu = {
+    init: function init() {
+      this.cacheDOM();
+      this.bindEvents();
+      this.remove;
+    },
+    cacheDOM: function cacheDOM() {
+      this.$el = $('.mobile-menu-button');
+      this.$spans = this.$el.find('span');
+      this.$topbar = $('.mobile-topbar');
+      this.$mHeaderWrapper = $('.mobile-header-wrapper');
+      this.$saleModal = $('.sale-modal-wrapper');
+      this.$modularWrapper = $('.modular-wrapper');
+    },
+    bindEvents: function bindEvents() {
+      this.$el.on('click', this.menuToggle.bind(this));
+    },
+    menuToggle: function menuToggle() {
+      this.$topbar.toggleClass('active-mobile');
+      this.$mHeaderWrapper.toggleClass('active-mobile');
+      this.$saleModal.toggleClass('active-mobile');
+      this.$modularWrapper.toggleClass('active-mobile');
+      this.cycleSpan();
+    },
+    cycleSpan: function cycleSpan() {
+      this.$spans.toggleClass('active-mobile');
+    }
+  };
+
+  menu.init();
+})();
+
+(function () {
+
+  var modal = {
+    init: function init() {
+      this.cacheDOM();
+      this.bindEvents();
+    },
+    cacheDOM: function cacheDOM() {
+      this.$saleRemove = $('.sale-modal-wrapper');
+    },
+    bindEvents: function bindEvents() {
+      this.$saleRemove.on('click', this.removeModal.bind(this));
+    },
+    removeModal: function removeModal() {
+      this.$saleRemove.toggleClass('modal-remove');
+    }
+
+  };
+
+  modal.init();
+})();
+
 //*********************************************************
 //                 Index Page Events ONLY
 //*********************************************************
 
-if (article.dataset.title === 'Index') {
-  $('.mobile-menu-button').on('click', toggleMenuIndex);
-  $('.sale-modal-remove').on('click', removeModal);
-
-  window.addEventListener('load', function () {
-    $('.sale-modal-wrapper').css({
-      'transform': 'translateY(0)'
-    });
-  });
-}
+// if ( article.dataset.title === 'Index' ) {
+//   $('.mobile-menu-button').on('click', toggleMenuIndex);
+//   $('.sale-modal-remove').on('click', removeModal);
+//
+//   window.addEventListener('load', function() {
+//       $('.sale-modal-wrapper').css({
+//         'transform' : 'translateY(0)'
+//       });
+//   });
+// }
 
 //*********************************************************
 //                 Categories Pages Events
@@ -47,9 +103,8 @@ $('.panel p').on('click', function () {
   self.toggleClass('active-panel');
 });
 
-$('.mobile-link').on('click', function () {
+$('.mobile-link p').on('click', function () {
   var self = $(this).parent();
-  // console.log(self.children('.mobile-inner-links'));
   self.toggleClass('active-link');
   self.find('.mobile-inner-links').toggleClass('active-inner-links');
 });
@@ -80,10 +135,10 @@ function toggleMenu() {
   cycleSpans();
 }
 
-function cycleSpans() {
-  $('.mobile-menu-button span').toggleClass('active-mobile');
-}
+// function cycleSpans() {
+//   $('.mobile-menu-button span').toggleClass('active-mobile');
+// }
 
-function removeModal() {
-  $('.sale-modal-wrapper').toggleClass('modal-remove');
-}
+// function removeModal() {
+//   $('.sale-modal-wrapper').toggleClass('modal-remove');
+// }
