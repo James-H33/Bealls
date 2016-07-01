@@ -4,7 +4,7 @@
 var article = document.querySelector('article');
 
 //*******************************************************
-//                   EVENT LISTENERS
+//                  Modular JavaScript
 //*******************************************************
 
 (function () {
@@ -22,15 +22,39 @@ var article = document.querySelector('article');
       this.$mHeaderWrapper = $('.mobile-header-wrapper');
       this.$saleModal = $('.sale-modal-wrapper');
       this.$modularWrapper = $('.modular-wrapper');
+      this.$productListWrapper = $('.products-list-wrapper');
     },
     bindEvents: function bindEvents() {
-      this.$el.on('click', this.menuToggle.bind(this));
+      if (article.dataset.title === 'Index') {
+        this.$el.on('click', this.menuToggle.bind(this));
+      }
+
+      if (article.dataset.title === 'Main-Categories') {
+        this.$el.on('click', this.toggleMenuCate.bind(this));
+      }
+
+      if (article.dataset.title === 'Products-List') {
+        this.$el.on('click', this.toggleMenuProducts.bind(this));
+      }
     },
     menuToggle: function menuToggle() {
       this.$topbar.toggleClass('active-mobile');
       this.$mHeaderWrapper.toggleClass('active-mobile');
       this.$saleModal.toggleClass('active-mobile');
       this.$modularWrapper.toggleClass('active-mobile');
+      this.cycleSpan();
+    },
+    toggleMenuCate: function toggleMenuCate() {
+      this.$topbar.toggleClass('active-mobile');
+      this.$modularWrapper.toggleClass('active-mobile');
+      this.$mHeaderWrapper.toggleClass('active-mobile');
+      this.cycleSpan();
+    },
+    toggleMenuProducts: function toggleMenuProducts() {
+      this.$productListWrapper.toggleClass('active-mobile');
+      this.$topbar.toggleClass('active-mobile');
+      this.$modularWrapper.toggleClass('active-mobile');
+      this.$mHeaderWrapper.toggleClass('active-mobile');
       this.cycleSpan();
     },
     cycleSpan: function cycleSpan() {
@@ -57,88 +81,53 @@ var article = document.querySelector('article');
     removeModal: function removeModal() {
       this.$saleRemove.toggleClass('modal-remove');
     }
-
   };
 
   modal.init();
 })();
 
-//*********************************************************
-//                 Index Page Events ONLY
-//*********************************************************
+(function () {
 
-// if ( article.dataset.title === 'Index' ) {
-//   $('.mobile-menu-button').on('click', toggleMenuIndex);
-//   $('.sale-modal-remove').on('click', removeModal);
-//
-//   window.addEventListener('load', function() {
-//       $('.sale-modal-wrapper').css({
-//         'transform' : 'translateY(0)'
-//       });
-//   });
-// }
+  var panel = {
+    init: function init() {
+      this.cacheDOM();
+      this.bindEvents();
+    },
+    cacheDOM: function cacheDOM() {
+      this.$el = $('.panel p');
+      // this.$self = this.$el.parent();
+    },
+    bindEvents: function bindEvents() {
+      this.$el.on('click', event, this.togglePanel.bind(this));
+    },
+    togglePanel: function togglePanel(e) {
+      var $self = $(e.target).closest('.panel');
+      $self.toggleClass('active-panel');
+    }
+  };
 
-//*********************************************************
-//                 Categories Pages Events
-//*********************************************************
+  panel.init();
+})();
 
-if (article.dataset.title === 'Main-Categories') {
-  $('.mobile-menu-button').on('click', toggleMenuMCate);
-}
+(function () {
 
-//*********************************************************
-//                 Product Pages Events
-//*********************************************************
+  var links = {
+    init: function init() {
+      this.cacheDOM();
+      this.bindEvents();
+    },
+    cacheDOM: function cacheDOM() {
+      this.$el = $('.mobile-link h3');
+    },
+    bindEvents: function bindEvents() {
+      this.$el.on('click', event, this.toggleLinks.bind(this));
+    },
+    toggleLinks: function toggleLinks(e) {
+      var $self = $(e.target).closest('.mobile-link');
+      $self.toggleClass('active-link');
+      $self.find('.mobile-inner-links').toggleClass('active-inner-links');
+    }
+  };
 
-if (article.dataset.title === 'Products-List') {
-  $('.mobile-menu-button').on('click', toggleMenuProducts);
-}
-
-//*********************************************************
-//                     FOR EACH
-//*********************************************************
-
-$('.panel p').on('click', function () {
-  var self = $(this).parent();
-  self.toggleClass('active-panel');
-});
-
-$('.mobile-link p').on('click', function () {
-  var self = $(this).parent();
-  self.toggleClass('active-link');
-  self.find('.mobile-inner-links').toggleClass('active-inner-links');
-});
-
-//*******************************************************
-//                     FUNCTIONS
-//*******************************************************
-
-function toggleMenuIndex() {
-  $('.sale-modal-wrapper').toggleClass('active-mobile');
-  $('.modular-wrapper').toggleClass('active-mobile');
-  toggleMenu();
-}
-
-function toggleMenuMCate() {
-  $('.modular-wrapper').toggleClass('active-mobile');
-  toggleMenu();
-}
-
-function toggleMenuProducts() {
-  $('.products-list-wrapper').toggleClass('active-mobile');
-  toggleMenu();
-}
-
-function toggleMenu() {
-  $('.mobile-topbar').toggleClass('active-mobile');
-  $('.mobile-header-wrapper').toggleClass('active-mobile');
-  cycleSpans();
-}
-
-// function cycleSpans() {
-//   $('.mobile-menu-button span').toggleClass('active-mobile');
-// }
-
-// function removeModal() {
-//   $('.sale-modal-wrapper').toggleClass('modal-remove');
-// }
+  links.init();
+})();
