@@ -560,10 +560,22 @@ body {
   width: 80%;
   margin: 0 auto; }
   .products-list-row li {
-    width: 33.33%;
-    display: inline-block; }
+    width: 50%;
+    display: inline-block;
+    text-align: center; }
   .products-list-row img {
     width: 100%; }
+
+@media (min-width: 700px) {
+  .products-list-row {
+    width: 80%;
+    margin: 0 auto; }
+    .products-list-row li {
+      width: 33.33%;
+      display: inline-block;
+      text-align: center; }
+    .products-list-row img {
+      width: 100%; } }
 
 @media (min-width: 1000px) {
   .products-list-row li {
