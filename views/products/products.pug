@@ -1,9 +1,90 @@
 article(data-title="Products-List")
+
+div.modal-wrapper#dropdown-department-modal
+  div.modal-display
+    div.modal-content
+      div.modal-header
+        h2 Department
+        h3 Close
+      div.modal-body
+        a(href="#") Shirts
+        a(href="#") Pants
+        a(href="#") Shoes
+
+//- /*div.modal-wrapper#dropdown-brand-modal
+//-   div.modal-display
+//-     div.modal-content
+//-       div.modal-header
+//-         h2 Brand
+//-       div.modal-body
+//-         a(href="#") Shirts
+//-         a(href="#") Pants
+//-         a(href="#") Shoes
+//-
+//- div.modal-wrapper#dropdown-price-modal
+//-   div.modal-display
+//-     div.modal-content
+//-       div.modal-header
+//-         h2 Price
+//-       div.modal-body
+//-         a(href="#") Shirts
+//-         a(href="#") Pants
+//-         a(href="#") Shoes
+//-
+//- div.modal-wrapper#dropdown-color-modal
+//-   div.modal-display
+//-     div.modal-content
+//-       div.modal-header
+//-         h2 Color
+//-       div.modal-body
+//-         a(href="#") Shirts
+//-         a(href="#") Pants
+//-         a(href="#") Shoes
+//-
+//- div.modal-wrapper#dropdown-size-modal
+//-   div.modal-display
+//-     div.modal-content
+//-       div.modal-header
+//-         h2 Size
+//-       div.modal-body
+//-         a(href="#") Shirts
+//-         a(href="#") Pants
+//-         a(href="#") Shoes*/
+
 include ../partials/header.pug
 include ../partials/mobile-nav.pug
 
 section.products-list-wrapper
-  div.products.list-display
+  div.products-list-display
+    h2 #{title}
+
+    section.search-bar-wrapper
+      div.search-bar-display
+        h4 Narrow Search Results:
+
+        div.dropdown.first-dropdown
+          a(href="#" data-target="#dropdown-department-modal") Department
+          i(class="fa fa-caret-down" aria-hidden="true")
+
+        div.dropdown
+          a(href="#" data-target="#dropdown-brand-modal") Brand
+          i(class="fa fa-caret-down" aria-hidden="true")
+
+
+        div.dropdown
+          a(href="#" data-target="#dropdown-price-modal") Price
+          i(class="fa fa-caret-down" aria-hidden="true")
+
+
+        div.dropdown
+          a(href="#" data-target="#dropdown-color-modal") Color
+          i(class="fa fa-caret-down" aria-hidden="true")
+
+
+        div.dropdown
+          a(href="#" data-target="#dropdown-size-modal") Size
+          i(class="fa fa-caret-down" aria-hidden="true")
+
 
     div.products-list-row
       - shirts.forEach(function(item) {

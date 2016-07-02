@@ -8,17 +8,19 @@
   &.active-mobile
     transform: translateX(220px)
 
-@media(min-width: 1000px)
 
-  .products-list-wrapper
-    margin-top: 50px
 
-.products.list-display
-  width: 100%
+.products-list-display
+  width: 80%
   height: 100%
+  max-width: 1400px
+  margin: 0 auto
+
+  h2
+    font-size: 35px
 
 .products-list-row
-  width: 80%
+  width: 100%
   margin: 0 auto
 
   li
@@ -32,7 +34,7 @@
 @media(min-width: 700px)
 
   .products-list-row
-    width: 80%
+    width: 100%
     margin: 0 auto
 
     li
@@ -49,3 +51,107 @@
   .products-list-row
     li
       width: 20%
+
+
+
+
+.search-bar-wrapper
+  width: 100%
+  height: 100px
+
+.search-bar-display
+  width: 100%
+  height: 100%
+  max-width: 1400px
+  margin: 0 auto
+
+  h4
+    margin: 10px 0
+
+.dropdown
+  display: inline-block
+  position: relative
+  margin-right: 5px
+
+  a
+    width: 100px
+    height: 25px
+    display: inline-block
+    background: transparent
+    color: $black
+    font-weight: bold
+    text-decoration: none
+    border: 1px solid $black
+    border-radius: 4px
+    padding-left: 5px
+    z-index: 5
+
+    &:hover
+      color: $bealls-blue
+      border: 1px solid $bealls-blue
+
+  i
+    color: $bealls-blue
+    font-size: 20px
+    position: absolute
+    right: 10px
+    top: 1px
+
+.first-dropdown
+  a
+    width: 125px
+
+
+
+.modal-wrapper
+  width: 100%
+  height: 100%
+  display: none
+  background: $modal-back
+  position: absolute
+  z-index: 10
+
+  &.active-modal
+    display: initial
+
+.modal-display
+  width: 400px
+  height: 200px
+  margin: 0 auto
+  background: #fff
+  position: absolute
+  top: calc(20% - 100px)
+  left: calc(50% - 200px)
+  border: 1px solid $deep-blue
+  border-radius: 4px
+  box-shadow: 0 5px 15px rgba(0,0,0,.5)
+  transform: translateY(-270%)
+  transition: $modal-trans
+
+  &.active-modal
+    transform: translateY(50%)
+
+.modal-header
+  width: auto
+  height: auto
+  padding: 10px 10px 0 10px
+
+  h2
+    color: $deep-blue
+    display: inline-block
+
+  h3
+    float: right
+    padding-top: 3px
+    cursor: pointer
+
+.modal-body
+  width: 95%
+  margin: 0 auto
+  padding: 10px 0
+  a
+    width: 50px
+    color: $black
+    text-decoration: none
+    display: block
+    padding: 5px 0

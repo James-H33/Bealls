@@ -67,7 +67,7 @@ const article = document.querySelector('article');
 
 (function () {
 
-  let modal = {
+  let saleModal = {
       init: function() {
         this.cacheDOM();
         this.bindEvents();
@@ -80,11 +80,11 @@ const article = document.querySelector('article');
         this.$saleRemove.on('click', this.removeModal.bind(this));
       },
       removeModal: function() {
-        this.$modalWrapper.toggleClass('modal-remove');
+        this.$modalWrapper.toggleClass('sale-remove');
       }
   }
 
-  modal.init();
+  saleModal.init();
 
 })();
 
@@ -137,5 +137,44 @@ const article = document.querySelector('article');
   }
 
   links.init();
+
+})();
+
+// body overflow: hidden
+// add transform class
+// .modal-wrapper
+// .modal-display
+
+(function() {
+
+  let search = {
+    init: function() {
+      this.cacheDOM();
+      this.bindEvents();
+    },
+    cacheDOM: function() {
+      this.$body          = $('body');
+      this.$el           = $('.modal-wrapper');
+      this.$dropdown     = $('.dropdown a');
+      this.$modalDisplay = this.$el.find('.modal-display');
+      this.$closeModal   = this.$el.find('.modal-header h3');
+    },
+    bindEvents: function() {
+      this.$dropdown.on('click', this.activateModal.bind(this));
+      this.$closeModal.on('click', this.closeModal.bind(this));
+    },
+    activateModal: function() {
+      this.$el.toggleClass('active-modal');
+      setTimeout(() => {
+        this.$modalDisplay.toggleClass('active-modal');
+      }, 50)
+    },
+    closeModal: function() {
+      this.$el.toggleClass('active-modal');
+      this.$modalDisplay.toggleClass('active-modal');
+    }
+  }
+
+  search.init();
 
 })();

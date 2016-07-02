@@ -45,9 +45,10 @@ router.get('/men/shirts', function(req, res) {
     }
   ]
 
-  var Shirts  = menShirts;
+  let Shirts  = menShirts;
+  let title = 'Men\'s Shirts';
 
-  res.render('products/products', {shirts: Shirts})
+  res.render('products/products', {shirts: Shirts, title: title})
 })
 
 module.exports = router;
