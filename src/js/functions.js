@@ -1,4 +1,5 @@
 // HTML5 DATA-
+
 const article = document.querySelector('article');
 
 //*******************************************************
@@ -140,10 +141,7 @@ const article = document.querySelector('article');
 
 })();
 
-// body overflow: hidden
-// add transform class
-// .modal-wrapper
-// .modal-display
+
 
 (function() {
 
@@ -165,11 +163,13 @@ const article = document.querySelector('article');
     },
     activateModal: function() {
       this.$el.toggleClass('active-modal');
+      this.$body.toggleClass('active-body');
       setTimeout(() => {
         this.$modalDisplay.toggleClass('active-modal');
       }, 50)
     },
     closeModal: function() {
+      this.$body.toggleClass('active-body');
       this.$el.toggleClass('active-modal');
       this.$modalDisplay.toggleClass('active-modal');
     }

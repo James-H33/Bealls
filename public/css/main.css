@@ -657,11 +657,17 @@ body {
   padding: 10px 10px 0 10px; }
   .modal-header h2 {
     color: #015488;
-    display: inline-block; }
+    display: inline-block;
+    font-weight: normal; }
   .modal-header h3 {
+    font-size: 15px;
     float: right;
-    padding-top: 3px;
+    padding-top: 8px;
+    font-weight: normal;
     cursor: pointer; }
+  .modal-header i {
+    font-size: 18px;
+    margin-left: 5px; }
 
 .modal-body {
   width: 95%;
@@ -673,3 +679,6 @@ body {
     text-decoration: none;
     display: block;
     padding: 5px 0; }
+
+.active-body {
+  overflow: hidden; }

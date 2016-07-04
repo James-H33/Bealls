@@ -1,6 +1,7 @@
 'use strict';
 
 // HTML5 DATA-
+
 var article = document.querySelector('article');
 
 //*******************************************************
@@ -95,7 +96,6 @@ var article = document.querySelector('article');
     },
     cacheDOM: function cacheDOM() {
       this.$el = $('.panel p');
-      // this.$self = this.$el.parent();
     },
     bindEvents: function bindEvents() {
       this.$el.on('click', event, this.togglePanel.bind(this));
@@ -132,11 +132,6 @@ var article = document.querySelector('article');
   links.init();
 })();
 
-// body overflow: hidden
-// add transform class
-// .modal-wrapper
-// .modal-display
-
 (function () {
 
   var search = {
@@ -159,11 +154,13 @@ var article = document.querySelector('article');
       var _this = this;
 
       this.$el.toggleClass('active-modal');
+      this.$body.toggleClass('active-body');
       setTimeout(function () {
         _this.$modalDisplay.toggleClass('active-modal');
       }, 50);
     },
     closeModal: function closeModal() {
+      this.$body.toggleClass('active-body');
       this.$el.toggleClass('active-modal');
       this.$modalDisplay.toggleClass('active-modal');
     }
