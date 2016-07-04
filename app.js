@@ -1,14 +1,14 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const app     = express();
 
 
 // Require App Routes
-var WomenRoutes = require('./routes/womenRoutes.js');
-var MenRoutes = require('./routes/menRoutes.js');
+const WomenRoutes = require('./routes/womenRoutes.js');
+const MenRoutes = require('./routes/menRoutes.js');
 
 // Ports
-var port = process.env.PORT || 5000;
-var portIP = process.env.IP;
+const port = process.env.PORT || 5000;
+const portIP = process.env.IP;
 
 // Settings
 app.use(express.static(__dirname + '/public'))
@@ -16,14 +16,14 @@ app.set('view engine', 'pug');
 
 app.get('/', function(req, res) {
 
-  var indexSales = {
+  const indexSales = {
     shoes: {
       product: 'Shoes',
       saleRate: '70%'
     }
   }
 
-  var Products = indexSales;
+  const Products = indexSales;
 
   res.render('index', {Products: Products});
 })

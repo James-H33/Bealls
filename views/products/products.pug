@@ -12,45 +12,53 @@ div.modal-wrapper#dropdown-department-modal
         a(href="#") Pants
         a(href="#") Shoes
 
-//- /*div.modal-wrapper#dropdown-brand-modal
-//-   div.modal-display
-//-     div.modal-content
-//-       div.modal-header
-//-         h2 Brand
-//-       div.modal-body
-//-         a(href="#") Shirts
-//-         a(href="#") Pants
-//-         a(href="#") Shoes
-//-
-//- div.modal-wrapper#dropdown-price-modal
-//-   div.modal-display
-//-     div.modal-content
-//-       div.modal-header
-//-         h2 Price
-//-       div.modal-body
-//-         a(href="#") Shirts
-//-         a(href="#") Pants
-//-         a(href="#") Shoes
-//-
-//- div.modal-wrapper#dropdown-color-modal
-//-   div.modal-display
-//-     div.modal-content
-//-       div.modal-header
-//-         h2 Color
-//-       div.modal-body
-//-         a(href="#") Shirts
-//-         a(href="#") Pants
-//-         a(href="#") Shoes
-//-
-//- div.modal-wrapper#dropdown-size-modal
-//-   div.modal-display
-//-     div.modal-content
-//-       div.modal-header
-//-         h2 Size
-//-       div.modal-body
-//-         a(href="#") Shirts
-//-         a(href="#") Pants
-//-         a(href="#") Shoes*/
+div.modal-wrapper#dropdown-brand-modal
+  div.modal-display
+    div.modal-content
+      div.modal-header
+        h2 Brand
+        h3 CLOSE
+          i(class="fa fa-times" aria-hidden="true")
+      div.modal-body
+        a(href="#") Shirts
+        a(href="#") Pants
+        a(href="#") Shoes
+
+div.modal-wrapper#dropdown-price-modal
+  div.modal-display
+    div.modal-content
+      div.modal-header
+        h2 Price
+        h3 CLOSE
+          i(class="fa fa-times" aria-hidden="true")
+      div.modal-body
+        a(href="#") Shirts
+        a(href="#") Pants
+        a(href="#") Shoes
+
+div.modal-wrapper#dropdown-color-modal
+  div.modal-display
+    div.modal-content
+      div.modal-header
+        h2 Color
+        h3 CLOSE
+          i(class="fa fa-times" aria-hidden="true")
+      div.modal-body
+        a(href="#") Black
+        a(href="#") Green
+        a(href="#") Blue
+
+div.modal-wrapper#dropdown-size-modal
+  div.modal-display
+    div.modal-content
+      div.modal-header
+        h2 Size
+        h3 CLOSE
+          i(class="fa fa-times" aria-hidden="true")
+      div.modal-body
+        a(href="#") Shirts
+        a(href="#") Pants
+        a(href="#") Shoes
 
 include ../partials/header.pug
 include ../partials/mobile-nav.pug
@@ -64,35 +72,39 @@ section.products-list-wrapper
         h4 Narrow Search Results:
 
         div.dropdown.first-dropdown
-          a(href="#" data-target="#dropdown-department-modal") Department
+          a(href="#" data-tag="#dropdown-department-modal") Department
           i(class="fa fa-caret-down" aria-hidden="true")
 
         div.dropdown
-          a(href="#" data-target="#dropdown-brand-modal") Brand
-          i(class="fa fa-caret-down" aria-hidden="true")
-
-
-        div.dropdown
-          a(href="#" data-target="#dropdown-price-modal") Price
+          a(href="#" data-tag="#dropdown-brand-modal") Brand
           i(class="fa fa-caret-down" aria-hidden="true")
 
 
         div.dropdown
-          a(href="#" data-target="#dropdown-color-modal") Color
+          a(href="#" data-tag="#dropdown-price-modal") Price
           i(class="fa fa-caret-down" aria-hidden="true")
 
 
         div.dropdown
-          a(href="#" data-target="#dropdown-size-modal") Size
+          a(href="#" data-tag="#dropdown-color-modal") Color
+          i(class="fa fa-caret-down" aria-hidden="true")
+
+
+        div.dropdown
+          a(href="#" data-tag="#dropdown-size-modal") Size
           i(class="fa fa-caret-down" aria-hidden="true")
 
 
     div.products-list-row
       - shirts.forEach(function(item) {
-        li
-          img(src=''+item.image+'')
-          h5 #{item.name}
-          p #{item.price}
+      -  if (item) {
+          li
+            img(src=''+item.image+'')
+            h5 #{item.name}
+            p #{item.price}
+      -  } else {
+          h2 No Items Available
+      - }
       - })
 
 

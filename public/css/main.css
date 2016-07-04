@@ -633,15 +633,15 @@ body {
     display: initial; }
 
 .modal-display {
-  width: 400px;
+  width: 300px;
   height: 200px;
   margin: 0 auto;
   background: #fff;
   position: absolute;
   top: calc(20% - 100px);
-  left: calc(50% - 200px);
+  left: calc(50% - 150px);
   border: 1px solid #015488;
-  border-radius: 4px;
+  border-radius: 6px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   -webkit-transform: translateY(-270%);
   transform: translateY(-270%);
@@ -650,6 +650,14 @@ body {
   .modal-display.active-modal {
     -webkit-transform: translateY(50%);
     transform: translateY(50%); }
+
+@media (min-width: 769px) {
+  .modal-display {
+    width: 400px;
+    height: 200px;
+    position: absolute;
+    top: calc(20% - 100px);
+    left: calc(50% - 200px); } }
 
 .modal-header {
   width: auto;
@@ -660,13 +668,18 @@ body {
     display: inline-block;
     font-weight: normal; }
   .modal-header h3 {
-    font-size: 15px;
+    color: #000;
+    font-size: 13px;
     float: right;
-    padding-top: 8px;
+    padding: 5px 8px;
+    margin-top: 3px;
     font-weight: normal;
     cursor: pointer; }
+    .modal-header h3:hover {
+      border: 1px solid #000;
+      border-radius: 4px; }
   .modal-header i {
-    font-size: 18px;
+    font-size: 15px;
     margin-left: 5px; }
 
 .modal-body {
@@ -679,6 +692,8 @@ body {
     text-decoration: none;
     display: block;
     padding: 5px 0; }
+    .modal-body a:hover {
+      color: #0099c7; }
 
 .active-body {
   overflow: hidden; }
