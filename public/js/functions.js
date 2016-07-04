@@ -1,6 +1,7 @@
 'use strict';
 
 // HTML5 DATA-
+
 var article = document.querySelector('article');
 
 //*******************************************************
@@ -132,11 +133,6 @@ var article = document.querySelector('article');
   links.init();
 })();
 
-// body overflow: hidden
-// add transform class
-// .modal-wrapper
-// .modal-display
-
 (function () {
 
   var search = {
@@ -152,20 +148,27 @@ var article = document.querySelector('article');
       this.$closeModal = this.$el.find('.modal-header h3');
     },
     bindEvents: function bindEvents() {
-      this.$dropdown.on('click', this.activateModal.bind(this));
+      this.$dropdown.on('click', event, this.activateModal.bind(this));
       this.$closeModal.on('click', this.closeModal.bind(this));
     },
-    activateModal: function activateModal() {
+    activateModal: function activateModal(e) {
       var _this = this;
 
-      this.$el.toggleClass('active-modal');
+      var $e = e.target.dataset.tag;
+      console.log($e);
+
+      $('' + $e + '').addClass('active-modal');
+
+      // this.$el.toggleClass('active-modal');
+      this.$body.addClass('active-body');
       setTimeout(function () {
-        _this.$modalDisplay.toggleClass('active-modal');
+        _this.$modalDisplay.addClass('active-modal');
       }, 50);
     },
     closeModal: function closeModal() {
-      this.$el.toggleClass('active-modal');
-      this.$modalDisplay.toggleClass('active-modal');
+      this.$body.removeClass('active-body');
+      this.$el.removeClass('active-modal');
+      this.$modalDisplay.removeClass('active-modal');
     }
   };
 

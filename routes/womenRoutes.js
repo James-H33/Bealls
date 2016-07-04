@@ -1,17 +1,17 @@
-var express = require('express');
-var router = express.Router();
-var mongoose = require('mongoose');
+const express = require('express');
+const router = express.Router();
+const mongoose = require('mongoose');
 
 router.get('/women', function(req, res) {
-  
-  var Women = {
+
+  const Women = {
     shoes: {
       product: 'Shoes',
       saleRate: '50%',
     }
   }
 
-  var Products = Women;
+  const Products = Women;
 
   res.render('women/women', {Products: Products});
 });
