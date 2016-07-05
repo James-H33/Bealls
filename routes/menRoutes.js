@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 
 router.get('/men', function(req, res) {
 
-  let Men = {
+  const Men = {
     shoes: {
       product: 'Shirts',
       saleRate: '20%',
@@ -20,7 +20,7 @@ router.get('/men', function(req, res) {
 
 router.get('/men/shirts', function(req, res) {
 
-  let spec = req.params.itemSpec;
+  const spec = req.params.itemSpec;
   // console.log(itemSpec);
 
   var menShirts = [
@@ -61,7 +61,7 @@ router.get('/men/shirts', function(req, res) {
     }
   ]
 
-  let title = 'Men\'s Shirts';
+  const title = 'Men\'s Shirts';
 
   res.render('products/products', {shirts: menShirts, title: title})
 })
