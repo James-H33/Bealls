@@ -13,9 +13,7 @@ router.get('/men', function(req, res) {
     }
   }
 
-  let Products = Men;
-
-  res.render('men/men', {Products: Products});
+  res.render('men/men', {Products: Men});
 });
 
 
@@ -63,10 +61,9 @@ router.get('/men/shirts', function(req, res) {
     }
   ]
 
-  let Shirts  = menShirts;
   let title = 'Men\'s Shirts';
 
-  res.render('products/products', {shirts: Shirts, title: title})
+  res.render('products/products', {shirts: menShirts, title: title})
 })
 
 module.exports = router;
