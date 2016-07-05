@@ -1,6 +1,6 @@
-const express = require('express');
-const router = express.Router();
-const mongoose = require('mongoose');
+const express   = require('express');
+const router    = express.Router();
+const mongoose  = require('mongoose');
 
 
 
@@ -65,5 +65,7 @@ router.get('/men/shirts', function(req, res) {
 
   res.render('products/products', {shirts: menShirts, title: title})
 })
+
+
 
 module.exports = router;
