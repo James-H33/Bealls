@@ -6,14 +6,13 @@ router.get('/women', function(req, res) {
 
   const Women = {
     shoes: {
-      product: 'Shoes',
+      product: 'Pants',
       saleRate: '50%',
     }
   }
 
-  const Products = Women;
 
-  res.render('women/women', {Products: Products});
+  res.render('women/women', {Products: Women});
 });
 
 module.exports = router;
