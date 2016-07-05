@@ -1,8 +1,16 @@
 Bealls Clothing Website
 
+This project is under construction...
+
 Requirements
   - Node 6.0
 
 How to run:
   - npm install
-  - gulp
+  - gulp(for dev)
+  - node app.js
+    -- localhost: 5000
+
+
+Notes:
+  "let" is not supported in Heroku.
